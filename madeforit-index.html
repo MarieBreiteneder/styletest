@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Sizing Table</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 20px;
+      }
+
+      /* Desktop table layout */
+      .table-container {
+        display: grid;
+        grid-template-columns: 200px repeat(10, 1fr);
+        gap: 1px;
+        background: #ddd;
+        border: 1px solid #ddd;
+      }
+
+      .table-cell {
+        background: white;
+        padding: 12px 8px;
+        text-align: center;
+      }
+
+      .table-header {
+        background: white;
+        font-weight: bold;
+        text-align: center;
+        padding: 12px 8px;
+      }
+
+      .table-row-header {
+        background: white;
+        text-align: left;
+        padding: 12px 8px;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Mobile responsive layout */
+      .mobile-layout {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
+      }
+      @media (max-width: 992px) {
+        body {
+          padding: 10px;
+        }
+
+        .table-container {
+          display: block;
+          background: none;
+          border: none;
+          gap: 0;
+        }
+
+        .table-row {
+          margin-bottom: 20px;
+          border: 1px solid #ddd;
+          background: white;
+          width: 45vw;
+        }
+
+        .table-row-header {
+          background: #f5f5f5;
+          text-align: center;
+          padding: 12px;
+          border-bottom: 1px solid #ddd;
+          font-weight: bold;
+        }
+
+        .size-data {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1px;
+          background: #ddd;
+        }
+
+        .size-item {
+          background: white;
+          padding: 8px;
+          text-align: center;
+          font-size: 1rem;
+        }
+
+        .size-label {
+          font-weight: bold;
+          background: #f9f9f9;
+        }
+      }
+
+      /* Hide desktop headers on mobile */
+      @media (max-width: 992px) {
+        .desktop-header {
+          display: none;
+        }
+      }
+
+      /* Hide mobile layout on desktop */
+      @media (min-width: 992px) {
+        .mobile-row {
+          display: none;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .mobile-layout {
+          align-items: center;
+          flex-direction: column;
+      }
+      .table-row{
+        width: 80vw;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Desktop Layout -->
+    <div class="table-container">
+      <!-- Headers -->
+      <div class="table-header desktop-header"></div>
+      <div class="table-header desktop-header">Size 4<br />(XXS)</div>
+      <div class="table-header desktop-header">Size 6<br />(XS)</div>
+      <div class="table-header desktop-header">Size 8<br />(S)</div>
+      <div class="table-header desktop-header">Size 10<br />(M)</div>
+      <div class="table-header desktop-header">Size 12<br />(L)</div>
+      <div class="table-header desktop-header">Size 14<br />(XL)</div>
+      <div class="table-header desktop-header">Size 16<br />(XXL)</div>
+      <div class="table-header desktop-header">Size 18<br />(3XL)</div>
+      <div class="table-header desktop-header">Size 20<br />(4XL)</div>
+      <div class="table-header desktop-header">Size 22<br />(5XL)</div>
+
+      <!-- Body length row -->
+      <div class="table-row-header desktop-header">
+        Body length<br />(clavicle to base of crotch)
+      </div>
+      <div class="table-cell desktop-header">57-60</div>
+      <div class="table-cell desktop-header">59-62</div>
+      <div class="table-cell desktop-header">61-64</div>
+      <div class="table-cell desktop-header">63-66</div>
+      <div class="table-cell desktop-header">65-68</div>
+      <div class="table-cell desktop-header">67-72</div>
+      <div class="table-cell desktop-header">69-73</div>
+      <div class="table-cell desktop-header">70-74</div>
+      <div class="table-cell desktop-header">70-75</div>
+      <div class="table-cell desktop-header">70-76</div>
+
+      <!-- Chest row -->
+      <div class="table-row-header desktop-header">
+        Chest<br />(across bust)
+      </div>
+      <div class="table-cell desktop-header">74-80</div>
+      <div class="table-cell desktop-header">79-85</div>
+      <div class="table-cell desktop-header">84-90</div>
+      <div class="table-cell desktop-header">89-95</div>
+      <div class="table-cell desktop-header">94-100</div>
+      <div class="table-cell desktop-header">99-105</div>
+      <div class="table-cell desktop-header">101-110</div>
+      <div class="table-cell desktop-header">103-120</div>
+      <div class="table-cell desktop-header">105-130</div>
+      <div class="table-cell desktop-header">107-140</div>
+
+      <!-- Waist row -->
+      <div class="table-row-header desktop-header">Waist</div>
+      <div class="table-cell desktop-header">58-64</div>
+      <div class="table-cell desktop-header">63-69</div>
+      <div class="table-cell desktop-header">68-74</div>
+      <div class="table-cell desktop-header">73-79</div>
+      <div class="table-cell desktop-header">78-84</div>
+      <div class="table-cell desktop-header">83-89</div>
+      <div class="table-cell desktop-header">88-94</div>
+      <div class="table-cell desktop-header">93-100</div>
+      <div class="table-cell desktop-header">98-106</div>
+      <div class="table-cell desktop-header">103-115</div>
+
+      <!-- Hips row -->
+      <div class="table-row-header desktop-header">Hips</div>
+      <div class="table-cell desktop-header">80-86</div>
+      <div class="table-cell desktop-header">85-91</div>
+      <div class="table-cell desktop-header">90-96</div>
+      <div class="table-cell desktop-header">95-101</div>
+      <div class="table-cell desktop-header">100-106</div>
+      <div class="table-cell desktop-header">106-114</div>
+      <div class="table-cell desktop-header">112-120</div>
+      <div class="table-cell desktop-header">118-126</div>
+      <div class="table-cell desktop-header">124-130</div>
+      <div class="table-cell desktop-header">130-140</div>
+
+      <!-- Sleeve length row -->
+      <div class="table-row-header desktop-header">
+        Sleeve length<br />(shoulder to wrist)
+      </div>
+      <div class="table-cell desktop-header">58-61</div>
+      <div class="table-cell desktop-header">60-63</div>
+      <div class="table-cell desktop-header">62-65</div>
+      <div class="table-cell desktop-header">63-66</div>
+      <div class="table-cell desktop-header">64-67</div>
+      <div class="table-cell desktop-header">64-68</div>
+      <div class="table-cell desktop-header">64-70</div>
+      <div class="table-cell desktop-header">65-72</div>
+      <div class="table-cell desktop-header">65-72</div>
+      <div class="table-cell desktop-header">65-73</div>
+
+      <!-- Neck row -->
+      <div class="table-row-header desktop-header">Neck</div>
+      <div class="table-cell desktop-header">25-28</div>
+      <div class="table-cell desktop-header">26-29</div>
+      <div class="table-cell desktop-header">28-31</div>
+      <div class="table-cell desktop-header">30-33</div>
+      <div class="table-cell desktop-header">31-34</div>
+      <div class="table-cell desktop-header">32-35</div>
+      <div class="table-cell desktop-header">33-37</div>
+      <div class="table-cell desktop-header">34-41</div>
+      <div class="table-cell desktop-header">35-44</div>
+      <div class="table-cell desktop-header">36-47</div>
+
+      <!-- Inseam row -->
+      <div class="table-row-header desktop-header">Inseam</div>
+      <div class="table-cell desktop-header">60-65</div>
+      <div class="table-cell desktop-header">61-70</div>
+      <div class="table-cell desktop-header">62-71</div>
+      <div class="table-cell desktop-header">63-72</div>
+      <div class="table-cell desktop-header">64-73</div>
+      <div class="table-cell desktop-header">65-74</div>
+      <div class="table-cell desktop-header">66-75</div>
+      <div class="table-cell desktop-header">66-76</div>
+      <div class="table-cell desktop-header">66-76</div>
+      <div class="table-cell desktop-header">66-77</div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="mobile-layout">
+      <!-- Body length -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">
+          Body length (clavicle to base of crotch)
+        </div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">57-60</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">59-62</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">61-64</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">63-66</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">65-68</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">67-72</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">69-73</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">70-74</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">70-75</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">70-76</div>
+        </div>
+      </div>
+
+      <!-- Chest -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">Chest (across bust)</div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">74-80</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">79-85</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">84-90</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">89-95</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">94-100</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">99-105</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">101-110</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">103-120</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">105-130</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">107-140</div>
+        </div>
+      </div>
+
+      <!-- Waist -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">Waist</div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">58-64</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">63-69</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">68-74</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">73-79</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">78-84</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">83-89</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">88-94</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">93-100</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">98-106</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">103-115</div>
+        </div>
+      </div>
+
+      <!-- Hips -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">Hips</div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">80-86</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">85-91</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">90-96</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">95-101</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">100-106</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">106-114</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">112-120</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">118-126</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">124-130</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">130-140</div>
+        </div>
+      </div>
+
+      <!-- Sleeve length -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">Sleeve length (shoulder to wrist)</div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">58-61</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">60-63</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">62-65</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">63-66</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">64-67</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">64-68</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">64-70</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">65-72</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">65-72</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">65-73</div>
+        </div>
+      </div>
+
+      <!-- Neck -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">Neck</div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">25-28</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">26-29</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">28-31</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">30-33</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">31-34</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">32-35</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">33-37</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">34-41</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">35-44</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">36-47</div>
+        </div>
+      </div>
+
+      <!-- Inseam -->
+      <div class="table-row mobile-row">
+        <div class="table-row-header">Inseam</div>
+        <div class="size-data">
+          <div class="size-item size-label">Size 4 (XXS)</div>
+          <div class="size-item">60-65</div>
+          <div class="size-item size-label">Size 6 (XS)</div>
+          <div class="size-item">61-70</div>
+          <div class="size-item size-label">Size 8 (S)</div>
+          <div class="size-item">62-71</div>
+          <div class="size-item size-label">Size 10 (M)</div>
+          <div class="size-item">63-72</div>
+          <div class="size-item size-label">Size 12 (L)</div>
+          <div class="size-item">64-73</div>
+          <div class="size-item size-label">Size 14 (XL)</div>
+          <div class="size-item">65-74</div>
+          <div class="size-item size-label">Size 16 (XXL)</div>
+          <div class="size-item">66-75</div>
+          <div class="size-item size-label">Size 18 (3XL)</div>
+          <div class="size-item">66-76</div>
+          <div class="size-item size-label">Size 20 (4XL)</div>
+          <div class="size-item">66-76</div>
+          <div class="size-item size-label">Size 22 (5XL)</div>
+          <div class="size-item">66-77</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
